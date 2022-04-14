@@ -2,3 +2,7 @@ spring:
   config:
     activate:
       on-profile: local
+
+openApi:
+  url: http://api.currencylayer.com
+  access_key: 91e79a3e6906ce9ec6a55bfb4b719359
