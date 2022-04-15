@@ -1,6 +1,7 @@
 package com.example.exchangerate.api.model
 
 import com.example.exchangerate.common.exception.BadRequestException
+import com.example.exchangerate.common.exception.NotFoundException
 import com.example.exchangerate.handler.response.ExchangeDataResponse
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
@@ -21,7 +22,7 @@ fun exchangeDate(country:String, exchangeDataResponse: ExchangeDataResponse): Ex
             "KRW" -> this.rate = exchangeDataResponse.quotes.KRW
             "JPY" -> this.rate = exchangeDataResponse.quotes.JPY
             "PHP" -> this.rate = exchangeDataResponse.quotes.PHP
-            else -> throw BadRequestException("test")
+            else -> throw NotFoundException("해당 국가의 정보를 찾을 수 없습니다.")
         }
 
     }
